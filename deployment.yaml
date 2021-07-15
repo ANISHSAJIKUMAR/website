@@ -1,0 +1,24 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: anish-webapp
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: anish-webapp
+  template: 
+    metadata: 
+      labels: 
+        app: anish-webapp
+    spec: 
+      containers: 
+      - name: anish-webapp
+        image: 8857890900/anish_webserver
+          
+        ports: 
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"
