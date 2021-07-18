@@ -31,7 +31,7 @@ pipeline {
 		    steps {
 			    sh 'whoami'
 			    script {
-				    myimage = docker.build("8857890900/anish_two")
+				    myimage = docker.build("8857890900/anish_two:${env.BUILD_ID}")
 			    }
 		    }
 	    }
@@ -54,8 +54,8 @@ pipeline {
 			    echo "Deployment started ..."
 			    sh 'ls -ltr'
 			    sh 'pwd'
-			    sh "sed -i 's/tagversion/g' services.yaml"
-				sh "sed -i 's/tagversion/g' deployment.yaml"
+			    sh "sed -i 's/tagversion/${env.BUILD_ID}/g' services.yaml"
+				sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml"
 			    echo "Start deployment of deployment.yaml"
 			    step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 			    echo "Start deployment of service.yaml"
