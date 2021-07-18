@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: anish-web-application
+  name: anish-two
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: anish-web-application
+      app: anish-two
   template:
     metadata:
       labels:
-        app: anish-web-application
+        app: anish-two
     spec:
       containers:
-      - name: anish-web-application
+      - name: anish-two
         image: 8857890900/anish_webserver
 
         ports:
