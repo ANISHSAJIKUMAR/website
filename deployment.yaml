@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: anish-two
-        image: 8857890900/anish_two
+        image: 8857890900/anish_two:tagversion
 
         ports:
         - containerPort: 8080
