@@ -31,7 +31,7 @@ pipeline {
 		    steps {
 			    sh 'whoami'
 			    script {
-				    myimage = docker.build("8857890900/anish_webserver:${env.BUILD_ID}")
+				    myimage = docker.build("8857890900/anish_two:${env.BUILD_ID}")
 			    }
 		    }
 	    }
