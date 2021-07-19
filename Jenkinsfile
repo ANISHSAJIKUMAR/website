@@ -15,18 +15,6 @@ pipeline {
 		    }
 	    }
 	    
-	    stage('Build') {
-		    steps {
-			    echo "Building .."
-		    }
-	    }
-	    
-	    stage('Test') {
-		    steps {
-			    echo "Testing..."
-		    }
-	    }
-	    
 	    stage('Build Docker Image') {
 		    steps {
 			    sh 'whoami'
